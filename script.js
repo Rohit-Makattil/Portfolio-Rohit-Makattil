@@ -19,6 +19,23 @@ const futuristicParticlesConfig = {
 // Load Particles after DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
   particlesJS('particles-js', futuristicParticlesConfig);
+
+  // Mobile Menu Toggle
+  const menuToggle = document.getElementById('menu-toggle');
+  const navMenu = document.getElementById('nav-menu');
+
+  menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  // Close mobile menu when a link is clicked
+  document.querySelectorAll('#nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 767) {
+        navMenu.classList.remove('active');
+      }
+    });
+  });
 });
 
 // Smooth Scroll with GSAP

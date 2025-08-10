@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gray-900 text-white transition-colors duration-300 font-poppins">
+<body class="bg-gray-950 text-white transition-colors duration-300 font-poppins">
   <!-- Enhanced Nebula Background with Particles and Glow -->
   <div id="nebula-background" class="fixed inset-0 z-0 pointer-events-none">
     <div id="particles-js" class="absolute inset-0"></div>
@@ -26,7 +26,14 @@
   <nav class="fixed top-0 w-full bg-transparent backdrop-blur-md shadow-md z-10">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
       <h1 class="text-xl sm:text-2xl font-bold neon-glow font-orbitron">Portfolio</h1>
-      <ul class="flex flex-wrap space-x-2 sm:space-x-6 text-sm sm:text-lg">
+      <div class="md:hidden">
+        <button id="menu-toggle" class="text-white focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+      <ul id="nav-menu" class="hidden md:flex flex-wrap space-x-2 sm:space-x-6 text-sm sm:text-lg">
         <li><a href="#about" class="hover:neon-glow font-orbitron transition-all duration-300 hover:scale-110">About</a></li>
         <li><a href="#skills" class="hover:neon-glow font-orbitron transition-all duration-300 hover:scale-110">Skills</a></li>
         <li><a href="#education" class="hover:neon-glow font-orbitron transition-all duration-300 hover:scale-110">Education</a></li>
