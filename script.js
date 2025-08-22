@@ -1,24 +1,24 @@
-const futuristicParticlesConfig = {
+const neonParticlesConfig = {
   particles: {
-    number: { value: 60, density: { enable: true, value_area: 1200 } },
-    color: { value: ['#00ccff', '#ff00cc', '#00ffcc'] },
+    number: { value: 50, density: { enable: true, value_area: 1000 } },
+    color: { value: ['#00d4ff', '#ff00cc', '#8b00ff'] },
     shape: { type: 'circle', stroke: { width: 0 } },
-    opacity: { value: 0.5, random: true, anim: { enable: true, speed: 1.5, opacity_min: 0.1 } },
-    size: { value: 2, random: true, anim: { enable: true, speed: 2, size_min: 0.5 } },
-    line_linked: { enable: true, distance: 120, color: '#ffffff', opacity: 0.3, width: 0.8 },
-    move: { enable: true, speed: 1.5, direction: 'none', random: true, straight: false, out_mode: 'out', bounce: false }
+    opacity: { value: 0.5, random: true, anim: { enable: true, speed: 1, opacity_min: 0.2 } },
+    size: { value: 2, random: true, anim: { enable: true, speed: 1, size_min: 0.5 } },
+    line_linked: { enable: true, distance: 100, color: '#00d4ff', opacity: 0.3, width: 1 },
+    move: { enable: true, speed: 1, direction: 'none', random: true, straight: false, out_mode: 'out' }
   },
   interactivity: {
     detect_on: 'canvas',
     events: { onhover: { enable: true, mode: 'grab' }, onclick: { enable: true, mode: 'push' }, resize: true },
-    modes: { grab: { distance: 150, line_linked: { opacity: 0.7 } }, push: { particles_nb: 4 } }
+    modes: { grab: { distance: 150, line_linked: { opacity: 0.5 } }, push: { particles_nb: 3 } }
   },
   retina_detect: true
 };
 
 // Load Particles after DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-  particlesJS('particles-js', futuristicParticlesConfig);
+  particlesJS('particles-js', neonParticlesConfig);
 
   // Mobile Menu Toggle
   const menuToggle = document.getElementById('menu-toggle');
@@ -26,6 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   menuToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
+    const isActive = navMenu.classList.contains('active');
+    menuToggle.querySelector('svg').innerHTML = isActive
+      ? '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>'
+      : '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
   });
 
   // Close mobile menu when a link is clicked
@@ -33,12 +37,49 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', () => {
       if (window.innerWidth <= 767) {
         navMenu.classList.remove('active');
+        menuToggle.querySelector('svg').innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+      }
+    });
+  });
+
+  // Skill Cards with Devicon
+  document.querySelectorAll('.skill-card').forEach(card => {
+    const skill = card.dataset.skill;
+    const iconClass = card.dataset.icon;
+    card.innerHTML = `
+      <div class="p-3 sm:p-4 bg-gray-900/20 border border-cyan-400/50 rounded-lg shadow-md backdrop-blur-sm transition-all duration-300 hover:shadow-cyan-400/30">
+        <i class="${iconClass} text-5xl sm:text-6xl mb-2 block text-center"></i>
+        <h4 class="text-base sm:text-lg font-bold font-orbitron text-center">${skill}</h4>
+      </div>
+    `;
+  });
+
+  // Animate Contact Form Inputs
+  document.querySelectorAll('#contact-form input, #contact-form textarea').forEach(input => {
+    input.addEventListener('focus', () => {
+      const label = input.previousElementSibling;
+      if (label && label.tagName === 'SPAN') {
+        label.style.transform = 'translateY(-20px)';
+        label.style.fontSize = '0.75rem';
+        label.style.color = '#00d4ff';
+      }
+    });
+    input.addEventListener('blur', () => {
+      if (!input.value) {
+        const label = input.previousElementSibling;
+        if (label && label.tagName === 'SPAN') {
+          label.style.transform = 'translateY(0)';
+          label.style.fontSize = '0.875rem';
+          label.style.color = '#9ca3af';
+        }
       }
     });
   });
 });
 
 // Smooth Scroll with GSAP
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     e.preventDefault();
@@ -47,9 +88,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // GSAP Animations
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-
-// Simplified Hero Animation
 gsap.timeline()
   .from('#hero-name', { 
     duration: 1.5, 
@@ -63,24 +101,17 @@ gsap.timeline()
       document.querySelector('#hero-name').style.borderRight = 'none';
     }
   })
-  .from('#hero-title', { duration: 0.8, opacity: 0, y: 30, ease: 'power2.out' }, '-=0.5')
+  .from('#hero-title', { duration: 0.6, opacity: 0, y: 20, ease: 'power2.out' }, '-=0.4')
   .from('#hero-desc', { duration: 0.6, opacity: 0, y: 20, ease: 'power2.out' }, '-=0.4')
   .from('#hero-buttons', { duration: 0.6, opacity: 0, y: 20, ease: 'power2.out' }, '-=0.4')
-  .from('.holographic-image', { duration: 0.8, opacity: 0, scale: 0.8, ease: 'power2.out' }, '-=0.6');
+  .from('.profile-image', { duration: 0.8, opacity: 0, scale: 0.9, ease: 'power2.out' }, '-=0.6');
 
-// Parallax and Section Animations
+// Section Animations
 document.addEventListener('DOMContentLoaded', () => {
-  ScrollTrigger.batch('.parallax-section', {
-    onEnter: batch => gsap.to(batch, { y: '10%', ease: 'none', duration: 0.5 }),
-    start: 'top 90%',
-    end: 'bottom top',
-    scrub: true
-  });
-
   gsap.utils.toArray('section').forEach(section => {
     gsap.from(section, {
       opacity: 0,
-      y: 50,
+      y: 30,
       duration: 0.8,
       ease: 'power2.out',
       scrollTrigger: {
@@ -91,101 +122,61 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Interactive Skill Cards
-  document.querySelectorAll('.skill-card').forEach(card => {
-    const skill = card.dataset.skill;
-    card.innerHTML = `
-      <div class="p-4 sm:p-6 bg-transparent border border-cyan-400 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-cyan-400/50 hover:neon-glow">
-        <h4 class="text-lg sm:text-xl font-bold font-orbitron mb-2 text-center">${skill}</h4>
-      </div>
-    `;
-    gsap.from(card, {
-      opacity: 0,
-      scale: 0.8,
-      duration: 0.5,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: card,
-        start: 'top 80%',
-        toggleActions: 'play none none none'
-      }
-    });
-
-    // Add click interaction for skill cards
-    card.addEventListener('click', () => {
-      gsap.to(card, { 
-        rotation: 360, 
-        scale: 1.1, 
-        duration: 0.5, 
-        ease: 'elastic.out(1, 0.5)', 
-        onComplete: () => gsap.to(card, { rotation: 0, scale: 1, duration: 0.3 })
-      });
-    });
+  // Skill Cards Animation with Stagger
+  gsap.from('.skill-card', {
+    opacity: 0,
+    scale: 0.9,
+    duration: 0.5,
+    stagger: 0.1,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: '#skills',
+      start: 'top 80%',
+      toggleActions: 'play none none none'
+    }
   });
 
-  // Timeline Animation for Education
-  gsap.utils.toArray('.timeline-item').forEach((item, index) => {
-    gsap.from(item, {
-      opacity: 0,
-      x: index % 2 === 0 ? -50 : 50,
-      duration: 0.8,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: item,
-        start: 'top 80%',
-        toggleActions: 'play none none none'
-      }
-    });
+  // Timeline Animation for Education with Stagger
+  gsap.from('.timeline-item', {
+    opacity: 0,
+    x: (index) => index % 2 === 0 ? -30 : 30,
+    duration: 0.6,
+    stagger: 0.2,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: '#education',
+      start: 'top 80%',
+      toggleActions: 'play none none none'
+    }
   });
 
-  // Animated Achievements
-  gsap.utils.toArray('.achievement-item').forEach((item, index) => {
-    gsap.from(item, {
-      opacity: 0,
-      scale: 0.8,
-      duration: 0.6,
-      delay: index * 0.1,
-      ease: 'elastic.out(1, 0.5)',
-      scrollTrigger: {
-        trigger: item,
-        start: 'top 80%',
-        toggleActions: 'play none none none'
-      }
-    });
+  // Animated Achievements with Stagger
+  gsap.from('.achievement-item', {
+    opacity: 0,
+    x: -20,
+    duration: 0.6,
+    stagger: 0.1,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: '#achievements',
+      start: 'top 80%',
+      toggleActions: 'play none none none'
+    }
   });
 
   // Contact Form Interactivity
   document.getElementById('contact-form').addEventListener('submit', (e) => {
     e.preventDefault();
     alert('Message sent! (Simulated)');
-    // Clear form inputs
     const form = e.target;
     form.querySelector('input[type="text"]').value = '';
     form.querySelector('input[type="email"]').value = '';
     form.querySelector('textarea').value = '';
-    // Add a subtle animation to confirm submission
     gsap.to(form, {
-      scale: 0.95,
+      scale: 0.98,
       duration: 0.2,
       ease: 'power2.out',
       onComplete: () => gsap.to(form, { scale: 1, duration: 0.2 })
     });
-  });
-
-  // Improved Custom Cursor with Glow
-  const cursor = document.createElement('div');
-  cursor.classList.add('cursor');
-  document.body.appendChild(cursor);
-
-  document.addEventListener('mousemove', (e) => {
-    gsap.to(cursor, { duration: 0.1, left: e.clientX, top: e.clientY });
-  });
-
-  document.addEventListener('mouseover', (e) => {
-    if (e.target.closest('a, button, .hover-card, .skill-card, .project-card')) {
-      cursor.classList.add('cursor-hover');
-    } else {
-      cursor.classList.remove('cursor-hover');
-    }
   });
 });

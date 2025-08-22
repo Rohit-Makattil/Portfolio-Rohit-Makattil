@@ -5,122 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rohit Makattil - Portfolio</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollToPlugin.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gray-950 text-white transition-colors duration-300 font-poppins">
-  <!-- Enhanced Nebula Background with Particles and Glow -->
-  <div id="nebula-background" class="fixed inset-0 z-0 pointer-events-none">
-    <div id="particles-js" class="absolute inset-0"></div>
-    <div class="nebula-layer nebula-1"></div>
-    <div class="nebula-layer nebula-2"></div>
-    <div class="nebula-layer nebula-3"></div>
+<body class="bg-gray-900 text-white font-inter">
+  <!-- Neon Animated Background -->
+  <div id="background" class="fixed inset-0 z-0 pointer-events-none">
+    <div id="particles-js" class="absolute inset-0 opacity-40"></div>
+    <div class="neon-layer"></div>
   </div>
 
   <!-- Navigation -->
-  <nav class="fixed top-0 w-full bg-transparent backdrop-blur-md shadow-md z-10">
-    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <h1 class="text-xl sm:text-2xl font-bold neon-glow font-orbitron">Portfolio</h1>
+  <nav class="fixed top-0 w-full bg-gray-900/90 backdrop-blur-lg shadow-xl z-10">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="https://github.com/Rohit-Makattil" class="text-xl sm:text-2xl font-bold font-orbitron text-cyan-400 neon-glow">Rohit Makattil</a>
       <div class="md:hidden">
         <button id="menu-toggle" class="text-white focus:outline-none">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
         </button>
       </div>
-      <ul id="nav-menu" class="hidden md:flex flex-wrap space-x-2 sm:space-x-6 text-sm sm:text-lg">
-        <li><a href="#about" class="hover:neon-glow font-orbitron transition-all duration-300 hover:scale-110">About</a></li>
-        <li><a href="#skills" class="hover:neon-glow font-orbitron transition-all duration-300 hover:scale-110">Skills</a></li>
-        <li><a href="#education" class="hover:neon-glow font-orbitron transition-all duration-300 hover:scale-110">Education</a></li>
-        <li><a href="#experience" class="hover:neon-glow font-orbitron transition-all duration-300 hover:scale-110">Experience</a></li>
-        <li><a href="#projects" class="hover:neon-glow font-orbitron transition-all duration-300 hover:scale-110">Projects</a></li>
-        <li><a href="#achievements" class="hover:neon-glow font-orbitron transition-all duration-300 hover:scale-110">Achievements</a></li>
-        <li><a href="#contact" class="hover:neon-glow font-orbitron transition-all duration-300 hover:scale-110">Contact</a></li>
+      <ul id="nav-menu" class="hidden md:flex space-x-6 text-lg font-orbitron">
+        <li><a href="#about" class="hover:text-cyan-400 transition-colors duration-300">About</a></li>
+        <li><a href="#skills" class="hover:text-cyan-400 transition-colors duration-300">Skills</a></li>
+        <li><a href="#education" class="hover:text-cyan-400 transition-colors duration-300">Education</a></li>
+        <li><a href="#experience" class="hover:text-cyan-400 transition-colors duration-300">Experience</a></li>
+        <li><a href="#projects" class="hover:text-cyan-400 transition-colors duration-300">Projects</a></li>
+        <li><a href="#achievements" class="hover:text-cyan-400 transition-colors duration-300">Achievements</a></li>
+        <li><a href="#contact" class="hover:text-cyan-400 transition-colors duration-300">Contact</a></li>
       </ul>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section id="about" class="relative min-h-screen flex items-center justify-center parallax-section">
+  <section id="about" class="relative min-h-screen flex items-center justify-center">
     <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
-      <div class="md:w-1/2 text-center md:text-left holographic-text">
-        <h1 id="hero-name" class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 font-orbitron typing">Hi, I'm Rohit Makattil</h1>
-        <p id="hero-title" class="text-xl sm:text-2xl mb-4 font-orbitron">Frontend Developer & AI/Data Science Engineer</p>
-        <p id="hero-desc" class="mb-6 text-base sm:text-lg">Final-year B.E. student in AI and Data Science at VESIT, skilled in frontend and UI/UX design. Proficient in HTML, CSS, JavaScript, React, Python for web and AI systems. Led social media and technical events, excelling in communication. Passionate about problem-solving and user-friendly designs.</p>
+      <div class="md:w-1/2 text-center md:text-left">
+        <h1 id="hero-name" class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 font-orbitron neon-glow typing">Hi, I'm Rohit Makattil</h1>
+        <p id="hero-title" class="text-lg sm:text-xl mb-4 font-orbitron text-cyan-400">Frontend Developer & AI/Data Science Engineer</p>
+        <p id="hero-desc" class="mb-6 text-sm sm:text-base">Final-year B.E. student in AI and Data Science at VESIT, skilled in frontend and UI/UX design. Proficient in HTML, CSS, JavaScript, React, Python for web and AI systems. Led social media and technical events, excelling in communication. Passionate about problem-solving and user-friendly designs.</p>
         <div id="hero-buttons" class="flex flex-wrap justify-center md:justify-start space-x-4">
-          <a href="https://www.linkedin.com/in/rohit-makattil-b553852a3/" class="text-cyan-300 hover:neon-glow"><i class="fab fa-linkedin fa-2x sm:fa-3x pulse-icon"></i></a>
-          <a href="https://github.com/Rohit-Makattil" class="text-cyan-300 hover:neon-glow"><i class="fab fa-github fa-2x sm:fa-3x pulse-icon"></i></a>
-          <a href="resume.pdf" download class="bg-cyan-400 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full hover:bg-cyan-500 pulse-button font-orbitron text-sm sm:text-base">Download Resume</a>
+          <a href="https://www.linkedin.com/in/rohit-makattil-b553852a3/" class="text-cyan-400 hover:text-cyan-300"><i class="fa-brands fa-linkedin-in fa-2x sm:fa-3x"></i></a>
+          <a href="https://github.com/Rohit-Makattil" class="text-cyan-400 hover:text-cyan-300"><i class="fa-brands fa-github-alt fa-2x sm:fa-3x"></i></a>
+          <a href="https://www.instagram.com/makattil.rohit/" class="text-cyan-400 hover:text-cyan-300"><i class="fa-brands fa-instagram fa-2x sm:fa-3x"></i></a>
+          <a href="resume.pdf" download class="btn-neon bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-6 py-2 rounded-full hover:from-cyan-600 hover:to-purple-700 transition-all duration-300 font-orbitron text-sm neon-glow">
+            Download Resume
+          </a>
         </div>
       </div>
       <div class="md:w-1/2 flex justify-center mt-8 md:mt-0">
-        <div class="holographic-image">
-          <img src="myself.jpg" alt="Rohit Makattil" class="w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 object-cover rounded-full shadow-2xl">
+        <div class="profile-image">
+          <img src="myself.jpg" alt="Rohit Makattil" class="w-48 sm:w-64 md:w-80 h-48 sm:h-64 md:h-80 object-cover rounded-full shadow-lg">
         </div>
       </div>
     </div>
   </section>
 
   <!-- Skills Section -->
-  <section id="skills" class="py-10 sm:py-20 bg-transparent relative z-1 parallax-section">
+  <section id="skills" class="py-16 bg-gray-900/30">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 neon-glow font-orbitron">Skills</h2>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
-        <div class="skill-card" data-skill="HTML"></div>
-        <div class="skill-card" data-skill="CSS"></div>
-        <div class="skill-card" data-skill="JavaScript"></div>
-        <div class="skill-card" data-skill="React"></div>
-        <div class="skill-card" data-skill="Python"></div>
-        <div class="skill-card" data-skill="Java"></div>
-        <div class="skill-card" data-skill="Git"></div>
-        <div class="skill-card" data-skill="VS Code"></div>
+      <h2 class="text-2xl sm:text-3xl font-bold text-center mb-10 font-orbitron neon-glow">Skills</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        <div class="skill-card" data-skill="HTML" data-icon="devicon-html5-plain colored"></div>
+        <div class="skill-card" data-skill="CSS" data-icon="devicon-css3-plain colored"></div>
+        <div class="skill-card" data-skill="JavaScript" data-icon="devicon-javascript-plain colored"></div>
+        <div class="skill-card" data-skill="React" data-icon="devicon-react-original colored"></div>
+        <div class="skill-card" data-skill="Python" data-icon="devicon-python-plain colored"></div>
+        <div class="skill-card" data-skill="Java" data-icon="devicon-java-plain colored"></div>
+        <div class="skill-card" data-skill="Git" data-icon="devicon-git-plain colored"></div>
+        <div class="skill-card" data-skill="VS Code" data-icon="devicon-vscode-plain colored"></div>
       </div>
     </div>
   </section>
 
-  <!-- Education Section with Timeline -->
-  <section id="education" class="py-10 sm:py-20 relative z-1">
+  <!-- Education Section -->
+  <section id="education" class="py-16">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 neon-glow font-orbitron">Education</h2>
-      <div class="timeline space-y-8">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center mb-10 font-orbitron neon-glow">Education</h2>
+      <div class="timeline space-y-6">
         <div class="timeline-item">
           <div class="timeline-content">
-            <h3 class="text-xl sm:text-2xl font-semibold neon-glow font-orbitron">B.E. in Artificial Intelligence and Data Science</h3>
-            <p>VESIT, Mumbai | 2022 – 2026</p>
-            <p>CGPA: 7.18/10</p>
+            <h3 class="text-lg sm:text-xl font-semibold font-orbitron neon-glow">B.E. in Artificial Intelligence and Data Science</h3>
+            <p class="text-sm sm:text-base">VESIT, Mumbai | 2022 – 2026</p>
+            <p class="text-sm sm:text-base">CGPA: 7.18/10</p>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-content">
-            <h3 class="text-xl sm:text-2xl font-semibold neon-glow font-orbitron">Higher Secondary (Grade of 68%)</h3>
-            <p>Swami Vivekanand Junior College, Navi Mumbai | 2020 – 2022</p>
+            <h3 class="text-lg sm:text-xl font-semibold font-orbitron neon-glow">Higher Secondary (68%)</h3>
+            <p class="text-sm sm:text-base">Swami Vivekanand Junior College, Navi Mumbai | 2020 – 2022</p>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-content">
-            <h3 class="text-xl sm:text-2xl font-semibold neon-glow font-orbitron">Secondary School Certificate (Grade of 91.40%)</h3>
-            <p>Swami Vivekanand High School, Navi Mumbai | 2014 – 2020</p>
+            <h3 class="text-lg sm:text-xl font-semibold font-orbitron neon-glow">Secondary School Certificate (91.40%)</h3>
+            <p class="text-sm sm:text-base">Swami Vivekanand High School, Navi Mumbai | 2014 – 2020</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Experience Section with Interactive Cards -->
-  <section id="experience" class="py-10 sm:py-20 bg-transparent relative z-1 parallax-section">
+  <!-- Experience Section -->
+  <section id="experience" class="py-16 bg-gray-900/30">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 neon-glow font-orbitron">Experience</h2>
-      <div class="space-y-8">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center mb-10 font-orbitron neon-glow">Experience</h2>
+      <div class="space-y-6">
         <div class="experience-card flex items-start justify-between">
           <div>
-            <h3 class="text-xl sm:text-2xl font-semibold neon-glow font-orbitron">Chief Marketing Officer, CSI-VESIT</h3>
-            <p>Aug 2025 – Apr 2026</p>
-            <ul class="list-disc ml-5 space-y-2">
+            <h3 class="text-lg sm:text-xl font-semibold font-orbitron neon-glow">Chief Marketing Officer, CSI-VESIT</h3>
+            <p class="text-sm sm:text-base">Aug 2025 – Apr 2026</p>
+            <ul class="list-disc ml-5 space-y-2 text-sm sm:text-base">
               <li>Led the marketing team in promoting events and initiatives, resulting in a 25% increase in visibility.</li>
               <li>Developed and executed comprehensive marketing strategies to enhance brand presence.</li>
               <li>Built and maintained strong relationships with sponsors and students to foster collaboration.</li>
@@ -128,13 +130,13 @@
               <li>Oversaw a team of marketing volunteers, coordinating efforts for successful event promotions.</li>
             </ul>
           </div>
-          <a href="https://www.instagram.com/p/DM9WpR_yokr/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="ml-4 text-cyan-300 hover:neon-glow"><i class="fab fa-instagram fa-2x sm:fa-3x pulse-icon"></i></a>
+          <a href="https://www.instagram.com/p/DM9WpR_yokr/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="ml-4 text-cyan-400 hover:text-cyan-300"><i class="fa-brands fa-instagram fa-2x sm:fa-3x"></i></a>
         </div>
         <div class="experience-card flex items-start justify-between">
           <div>
-            <h3 class="text-xl sm:text-2xl font-semibold neon-glow font-orbitron">Junior Treasurer, CSI-VESIT</h3>
-            <p>Aug 2024 – May 2025</p>
-            <ul class="list-disc ml-5 space-y-2">
+            <h3 class="text-lg sm:text-xl font-semibold font-orbitron neon-glow">Junior Treasurer, CSI-VESIT</h3>
+            <p class="text-sm sm:text-base">Aug 2024 – May 2025</p>
+            <ul class="list-disc ml-5 space-y-2 text-sm sm:text-base">
               <li>Managed event budgets with full transparency and accountability.</li>
               <li>Secured sponsorships, leading to a 10% increase in overall funding.</li>
               <li>Handled financial planning, allocation, and tracking for multiple technical events.</li>
@@ -142,13 +144,13 @@
               <li>Negotiated with vendors and sponsors to optimize costs and resources.</li>
             </ul>
           </div>
-          <a href="https://www.instagram.com/p/C-YCddKyXyb/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="ml-4 text-cyan-300 hover:neon-glow"><i class="fab fa-instagram fa-2x sm:fa-3x pulse-icon"></i></a>
+          <a href="https://www.instagram.com/p/C-YCddKyXyb/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="ml-4 text-cyan-400 hover:text-cyan-300"><i class="fa-brands fa-instagram fa-2x sm:fa-3x"></i></a>
         </div>
         <div class="experience-card flex items-start justify-between">
           <div>
-            <h3 class="text-xl sm:text-2xl font-semibold neon-glow font-orbitron">Junior Public Relations Officer, CSI-VESIT</h3>
-            <p>Oct 2023 – Apr 2024</p>
-            <ul class="list-disc ml-5 space-y-2">
+            <h3 class="text-lg sm:text-xl font-semibold font-orbitron neon-glow">Junior Public Relations Officer, CSI-VESIT</h3>
+            <p class="text-sm sm:text-base">Oct 2023 – Apr 2024</p>
+            <ul class="list-disc ml-5 space-y-2 text-sm sm:text-base">
               <li>Boosted Instagram engagement by 15% through creative content and reels.</li>
               <li>Designed eye-catching posters and promotional materials for technical events.</li>
               <li>Increased student participation in events by 20% via targeted PR campaigns.</li>
@@ -156,75 +158,82 @@
               <li>Handled public communications and built relationships to enhance society visibility.</li>
             </ul>
           </div>
-          <a href="https://www.instagram.com/p/CyOaPJvIVqw/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="ml-4 text-cyan-300 hover:neon-glow"><i class="fab fa-instagram fa-2x sm:fa-3x pulse-icon"></i></a>
+          <a href="https://www.instagram.com/p/CyOaPJvIVqw/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="ml-4 text-cyan-400 hover:text-cyan-300"><i class="fa-brands fa-instagram fa-2x sm:fa-3x"></i></a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Projects Section with Hover Reveal -->
-  <section id="projects" class="py-10 sm:py-20 relative z-1">
+  <!-- Projects Section -->
+  <section id="projects" class="py-16">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 neon-glow font-orbitron">Projects</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center mb-10 font-orbitron neon-glow">Projects</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div class="project-card">
-          <div class="project-front">
-            <h3 class="text-xl sm:text-2xl font-semibold neon-glow font-orbitron">AI-Driven ERP System</h3>
-            <p class="project-details">Built chatbot-based ERP with question-answer flows using HTML, CSS, JavaScript, React. Ranked Top 5/50 in Hack-AI-Thon 2025.</p>
-            <a href="https://github.com/Rohit-Makattil/vesitai" class="project-link text-cyan-300 hover:neon-glow font-orbitron">View on GitHub</a>
-          </div>
+          <h3 class="text-lg sm:text-xl font-semibold font-orbitron neon-glow">AI-Driven ERP System</h3>
+          <p class="project-details text-sm sm:text-base">Built chatbot-based ERP with question-answer flows using HTML, CSS, JavaScript, React. Ranked Top 5/50 in Hack-AI-Thon 2025.</p>
+          <a href="https://github.com/Rohit-Makattil/vesitai" class="project-link text-cyan-400 hover:text-cyan-300 font-orbitron">View on GitHub</a>
         </div>
         <div class="project-card">
-          <div class="project-front">
-            <h3 class="text-xl sm:text-2xl font-semibold neon-glow font-orbitron">Lingua – Translator Web App</h3>
-            <p class="project-details">Built translator with text/audio input and output using HTML, CSS, JavaScript. Supports light/dark mode.</p>
-            <a href="https://github.com/Rohit-Makattil/Lingua-The-Translator-Page" class="project-link text-cyan-300 hover:neon-glow font-orbitron">View on GitHub</a>
-          </div>
+          <h3 class="text-lg sm:text-xl font-semibold font-orbitron neon-glow">Lingua – Translator Web App</h3>
+          <p class="project-details text-sm sm:text-base">Built translator with text/audio input and output using HTML, CSS, JavaScript. Supports light/dark mode.</p>
+          <a href="https://github.com/Rohit-Makattil/Lingua-The-Translator-Page" class="project-link text-cyan-400 hover:text-cyan-300 font-orbitron">View on GitHub</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Achievements Section with Animated List -->
-  <section id="achievements" class="py-10 sm:py-20 bg-transparent relative z-1 parallax-section">
+  <!-- Achievements Section -->
+  <section id="achievements" class="py-16 bg-gray-900/30">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 neon-glow font-orbitron">Achievements</h2>
+      <h2 class="text-2xl sm:text-3xl font-bold text-center mb-10 font-orbitron neon-glow">Achievements</h2>
       <ul class="list-none space-y-4">
-        <li class="achievement-item">Trinity College London Piano – Scored 93/100</li>
-        <li class="achievement-item">Graphics Head, PRAXIS-VESIT; led Instagram handle and post designing for VES-Hack-It</li>
-        <li class="achievement-item">Google Cloud Skills Boost (2023)</li>
-        <li class="achievement-item">AWS Cloud Foundations (2024)</li>
-        <li class="achievement-item">MATLAB Machine Learning (2025)</li>
+        <li class="achievement-item text-sm sm:text-base">Trinity College London Piano – Scored 93/100</li>
+        <li class="achievement-item text-sm sm:text-base">Graphics Head, PRAXIS-VESIT; led Instagram handle and post designing for VES-Hack-It</li>
+        <li class="achievement-item text-sm sm:text-base">Google Cloud Skills Boost (2023)</li>
+        <li class="achievement-item text-sm sm:text-base">AWS Cloud Foundations (2024)</li>
+        <li class="achievement-item text-sm sm:text-base">MATLAB Machine Learning (2025)</li>
       </ul>
     </div>
   </section>
 
-  <!-- Contact Section with Interactive Form -->
-  <section id="contact" class="py-10 sm:py-20 relative z-1">
+  <!-- Contact Section -->
+  <section id="contact" class="py-16">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 neon-glow font-orbitron">Contact</h2>
-      <div class="max-w-lg mx-auto bg-transparent border border-cyan-400 p-6 sm:p-8 rounded-2xl shadow-2xl holographic-text">
-        <div class="mb-6">
-          <p>Email: <a href="mailto:rohitmakattil94@gmail.com" class="text-cyan-300 hover:neon-glow">rohitmakattil94@gmail.com</a></p>
+      <h2 class="text-2xl sm:text-3xl font-bold text-center mb-10 font-orbitron neon-glow">Contact</h2>
+      <div class="max-w-lg mx-auto bg-gray-900/10 p-6 rounded-xl shadow-lg backdrop-blur-md">
+        <div class="mb-6 text-sm sm:text-base">
+          <p>Email: <a href="mailto:rohitmakattil94@gmail.com" class="text-cyan-400 hover:text-cyan-300">rohitmakattil94@gmail.com</a></p>
           <p>Phone: +91 7710802616</p>
         </div>
         <form id="contact-form">
-          <input type="text" placeholder="Name" class="w-full p-3 mb-4 border border-cyan-400 rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-cyan-300">
-          <input type="email" placeholder="Email" class="w-full p-3 mb-4 border border-cyan-400 rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-cyan-300">
-          <textarea placeholder="Message" class="w-full p-3 mb-4 border border-cyan-400 rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-cyan-300" rows="5"></textarea>
-          <button type="submit" class="w-full bg-cyan-400 text-white p-3 rounded-lg hover:bg-cyan-500 pulse-button font-orbitron">Send Message</button>
+          <div class="relative mb-4">
+            <input type="text" placeholder="Name" class="w-full p-3 border border-cyan-400/50 rounded-lg bg-gray-900/20 focus:outline-none focus:ring-2 focus:ring-cyan-400 text-white text-sm sm:text-base">
+            <span class="absolute left-3 top-3 text-gray-500 transition-all duration-300">Name</span>
+          </div>
+          <div class="relative mb-4">
+            <input type="email" placeholder="Email" class="w-full p-3 border border-cyan-400/50 rounded-lg bg-gray-900/20 focus:outline-none focus:ring-2 focus:ring-cyan-400 text-white text-sm sm:text-base">
+            <span class="absolute left-3 top-3 text-gray-500 transition-all duration-300">Email</span>
+          </div>
+          <div class="relative mb-4">
+            <textarea placeholder="Message" class="w-full p-3 border border-cyan-400/50 rounded-lg bg-gray-900/20 focus:outline-none focus:ring-2 focus:ring-cyan-400 text-white text-sm sm:text-base" rows="5"></textarea>
+            <span class="absolute left-3 top-3 text-gray-500 transition-all duration-300">Message</span>
+          </div>
+          <button type="submit" class="btn-neon w-full bg-gradient-to-r from-cyan-500 to-purple-600 text-white p-3 rounded-lg hover:from-cyan-600 hover:to-purple-700 transition-all duration-300 font-orbitron text-sm neon-glow">
+            Send Message
+          </button>
         </form>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="py-6 bg-transparent text-center relative z-1">
-    <p class="neon-glow font-orbitron">&copy; 2025 Rohit Makattil. All rights reserved.</p>
+  <footer class="py-6 bg-gray-900/90 text-center">
+    <p class="font-orbitron text-sm sm:text-base">&copy; 2025 Rohit Makattil. All rights reserved.</p>
     <div class="flex justify-center space-x-6 mt-4">
-      <a href="https://www.linkedin.com/in/rohit-makattil-b553852a3/" class="text-cyan-300 hover:neon-glow"><i class="fab fa-linkedin fa-2x pulse-icon"></i></a>
-      <a href="https://github.com/Rohit-Makattil" class="text-cyan-300 hover:neon-glow"><i class="fab fa-github fa-2x pulse-icon"></i></a>
-      <a href="https://www.instagram.com/makattil.rohit/" class="text-cyan-300 hover:neon-glow"><i class="fab fa-instagram fa-2x pulse-icon"></i></a>
+      <a href="https://www.linkedin.com/in/rohit-makattil-b553852a3/" class="text-cyan-400 hover:text-cyan-300"><i class="fa-brands fa-linkedin-in fa-2x"></i></a>
+      <a href="https://github.com/Rohit-Makattil" class="text-cyan-400 hover:text-cyan-300"><i class="fa-brands fa-github-alt fa-2x"></i></a>
+      <a href="https://www.instagram.com/makattil.rohit/" class="text-cyan-400 hover:text-cyan-300"><i class="fa-brands fa-instagram fa-2x"></i></a>
     </div>
   </footer>
 
